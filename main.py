@@ -13,7 +13,7 @@ token = "e4f5c13f-4f31-4ae1-ac5c-b3f1df232073" # hcaptchaのサイトキー
 max_api_wait_time = 5
 max_time = 10
 # "https://invidious.adminforge.de/",
-apis = ['https://inv.nadeko.net/', 'https://inv.zzls.xyz/', 'https://invidious.nerdvpn.de/', 'https://iv.melmac.space/','https://youtube.lurkmore.com/',"https://iv.duti.dev/"]
+apis = ['https://inv.nadeko.net/','https://inv1.nadeko.net/', 'https://inv2.nadeko.net/','https://inv3.nadeko.net/','https://inv4.nadeko.net/','https://inv5.nadeko.net/','https://inv.zzls.xyz/', 'https://invidious.nerdvpn.de/', 'https://iv.melmac.space/','https://youtube.lurkmore.com/',"https://iv.duti.dev/"]
 version = "1.0"
 adminannounce = requests.get(r'https://ztttas1.github.io/yuki00000000000000000000000000000/AN.txt').text.rstrip()
 os.system("chmod 777 ./yukiverify")
@@ -21,6 +21,11 @@ os.system("chmod 777 ./yukiverify")
 # このyuki:https://github.com/Skype-GitHub/YUKI-GOD
 # フォークした場合hcaptchaのサイトキーを自分で作り直して使用してください
 url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
+if not url == "https://yukibbs-server.onrender.com":
+    if url in "<":
+        url = "https://yukibbs-server.onrender.com/"
+    if not url in "<":
+        url = "https://yukibbs-kari.onrender.com/"
 version = "1.0"
 apichannels = []
 apicomments = []
