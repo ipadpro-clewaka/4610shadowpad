@@ -411,7 +411,7 @@ def home():
 def home():
     global url
     url = "hhttps://yukibbs-server.onrender.com/"
-"""
+
 
 @app.exception_handler(500)
 def page(request: Request,__):
@@ -431,74 +431,3 @@ def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
         return template("apd1.html",{"request": request,"ver":ver,"update":update})
     print(check_cokie(yuki))
     return template("404.html", {"request": request})
-"""
-@app.get("/404", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    return template("404.html", {"request": request})
-"""
-@app.get("/build", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if check_cokie(yuki):
-        response.set_cookie("yuki","True",max_age=60 * 60 * 24 * 7)
-        return template("build.html",{"request": request})
-    print(check_cokie(yuki))
-    return template("404.html", {"request": request})
-@app.get("/qa", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if check_cokie(yuki):
-        response.set_cookie("yuki","True",max_age=60 * 60 * 24 * 7)
-        return template("qanda.html",{"request": request})
-    print(check_cokie(yuki))
-    return template("404.html", {"request": request})
-
-"""
-@app.get("/hcapture", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if (check_cokie(yuki)):
-     return redirect("/")
-    return template("hcaptcha.html",{"request": request,"token": token})
-"""
-"""
-@app.get("/word", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if (check_cokie(yuki)):
-     return redirect("/")
-    return template("word2.html",{"request": request})
-"""
-@app.get("/like", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if not(check_cokie(yuki)):
-     return template("404.html", {"request": request})
-    return template("okini.html",{"request": request})
-"""
-@app.get("/pass", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if pass1 == "yuki":
-        auth = "ok"
-    else:
-        auth = "no"
-    return {"authentication": auth,"cookie":}
-"""# パスワードのところ
-"""
-# vtt日本語自動生成
-@app.get('/vttjaauto')
-def get_vtt(videoid: str):
-    url = f"{apis[0]}/api/v1/captions/{videoid}?label=Japanese+%28auto-generated%29"
-    response = requests.get(url).text.rstrip()
-    
-    if response.status_code == 200:
-        return response
-    else:
-        raise "エラー"
-#vtt日本語
-
-@app.get('/vttja')
-def get_vtt(videoid: str):
-    url = f"{apis[0]}/api/v1/captions/{videoid}?label=Japanese"
-    response = requests.get(url).text.rstrip()
-    
-    if response.status_code == 200:
-        return response
-    else:
-        raise "エラー"
-
