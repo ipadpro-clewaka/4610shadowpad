@@ -16,20 +16,20 @@ max_time = 10
 apis = ['https://inv.nadeko.net/','https://inv1.nadeko.net/', 'https://inv2.nadeko.net/','https://inv3.nadeko.net/','https://inv4.nadeko.net/','https://inv5.nadeko.net/','https://inv.zzls.xyz/', 'https://invidious.nerdvpn.de/', 'https://iv.melmac.space/','https://youtube.lurkmore.com/',"https://iv.duti.dev/"]
 version = "1.0"
 adminannounce = requests.get(r'https://ztttas1.github.io/yuki00000000000000000000000000000/AN.txt').text.rstrip()
-"""
+
 os.system("chmod 777 ./yukiverify")
-"""#yukibbs
+
 # フォーク元:https://github.com/mochidukiyukimi/yuki-youtube-slim-2
 # このyuki:https://github.com/Skype-GitHub/YUKI-GOD
 # フォークした場合hcaptchaのサイトキーを自分で作り直して使用してください
-"""
+
 url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
 if not url == "https://yukibbs-server.onrender.com":
     if url in "<":
         url = "https://yukibbs-server.onrender.com/"
     if not url in "<":
         url = "https://yukibbs-kari.onrender.com/"
-"""#yukibbs
+
 version = "1.0"
 apichannels = []
 apicomments = []
@@ -149,7 +149,7 @@ def get_1040(videoid):
         if adaptiveFormats['size'] == '1920x1080' and adaptiveFormats['container'] == 'webm':
             return adaptiveFormats['url']
     return None  # 一致するフォーマットが見つからなかった場合にNoneを返す
-"""#凍結済み
+"""
 def get_search(q,page):
     global logs
     t = json.loads(apirequest(fr"api/v1/search?q={urllib.parse.quote(q)}&page={page}&hl=jp"))
@@ -242,7 +242,7 @@ def check_cokie(cookie):
     if cookie == "True":
         return True
     return False
-"""
+
 def get_verifycode():
     try:
         result = subprocess.run(["./yukiverify"], encoding='utf-8', stdout=subprocess.PIPE)
@@ -251,7 +251,7 @@ def get_verifycode():
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
         return None
-"""#yukibbs
+
 
 
 
@@ -364,7 +364,7 @@ def comments(request: Request,v:str):
 @app.get("/thumbnail")
 def thumbnail(v:str):
     return Response(content = requests.get(fr"https://img.youtube.com/vi/{v}/0.jpg").content,media_type=r"image/jpeg")
-"""
+
 @app.get("/bbs",response_class=HTMLResponse)
 def view_bbs(request: Request,name: Union[str, None] = "",seed:Union[str,None]="",channel:Union[str,None]="main",verify:Union[str,None]="false",yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
@@ -402,7 +402,7 @@ def view_commonds(request: Request,yuki: Union[str] = Cookie(None)):
 def home():
     global url
     url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
-"""#yukibbs
+
 @app.get("/load_instance_sub_server")
 def home():
     global url
