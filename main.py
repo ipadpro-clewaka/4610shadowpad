@@ -272,7 +272,7 @@ USERNAME = "TEST1"#BASIC
 PASSWORD = "TESTPAS"#BASIC
 def authenticate(credentials: HTTPBasicCredentials = Depends(security)):#BASIC
     if credentials.username != USERNAME or credentials.password != PASSWORD:#BASIC
-        raise HTTPException(status_code=401, detail="Unauthorized")#BASIC
+        return "401"#BASIC
     return credentials#BASIC
 
 from fastapi.templating import Jinja2Templates
