@@ -108,7 +108,6 @@ window.onload = () => {
   {% endfor %}
   
   <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese" srclang="ja" label="日本語" default>
-  <track kind="subtitles" src="/vttja?videoid={{ videoid }}" srclang="jagaku" label="日本語(学タブ)">
   <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese+%28auto-generated%29" srclang="jaauto" label="日本語-自動生成">
   <track kind="subtitles" src="/vtt?id={{ videoid }}" srclang="jaautogaku" label="日本語-自動生成(学タブ)">
 </video>
