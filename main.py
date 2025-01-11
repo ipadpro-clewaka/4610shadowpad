@@ -426,3 +426,9 @@ def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
         return template("apd1.html",{"request": request,"ver":ver,"update":update})
     print(check_cokie(yuki))
     return template("404.html", {"request": request})
+@app.get("/vtt")
+async def get_captions(id: str):
+    global apis,apichannels,apicomments
+    url = f"{apis[0]}/api/v1/captions/{id}?label=Japanese+(auto-generated)"
+    response = await client.get(url)
+    return response
