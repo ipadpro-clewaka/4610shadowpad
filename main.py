@@ -430,5 +430,5 @@ def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
 async def get_captions(id: str):
     global apis,apichannels,apicomments
     url = f"{apis[0]}api/v1/captions/{id}?label=Japanese+(auto-generated)"
-    response = await client.get(url)
+    response = apirequest(url)
     return response
