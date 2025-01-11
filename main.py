@@ -250,7 +250,7 @@ def get_verifycode():
 
 
 
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends,HTTPException
 from fastapi import Response,Cookie,Request
 from fastapi.responses import HTMLResponse,PlainTextResponse
 from fastapi.responses import RedirectResponse as redirect
@@ -270,10 +270,10 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 USERNAME = "TEST1"#BASIC
 PASSWORD = "TESTPAS"#BASIC
-def authenticate(credentials: HTTPBasicCredentials = Depends(security)):#BASIC
-    if credentials.username != USERNAME or credentials.password != PASSWORD:#BASIC
-        return "401"#BASIC
-    return credentials#BASIC
+def authenticate(credentials: HTTPBasicCredentials = Depends(security)):
+    if credentials.username != USERNAME or credentials.password != PASSWORD:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    return credentials
 
 from fastapi.templating import Jinja2Templates
 template = Jinja2Templates(directory='templates').TemplateResponse
