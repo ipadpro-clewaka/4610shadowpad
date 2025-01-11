@@ -94,23 +94,26 @@ window.onload = () => {
             <div id="hide">
                 <video
   id="player"
-  class="video-js vjs-default-skin on-video_player player-style-invidious"
+  class="video-js vjs-default-skin"
   controls
   preload="auto"
   style="outline:none;width:100%;background-color:#000;"
   playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
-  data-setup='{playbackRates: [0.5, 1, 1.5, 2]}'
+  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
+  data-setup='{"playbackRates": [0.5, 1, 1.5, 2]}'
 >
   {% for videourl in videourls %}
-　<source src="{{ videourl }}" type="video/mp4" type='video/mp4' label='デフォルト' r />
-　<source src="{{video1040}}" type='video/webm' label='1040p(webm)' />
+    <source src="{{ videourl }}" type="video/mp4" />
+    <source src="{{video1040}}" type="video/webm" />
+  {% endfor %}
+  
   <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese" srclang="ja" label="日本語" default>
-　<track kind="subtitles" src="/vttja?videoid={{ videoid }}" srclang="jagaku" label="日本語(学タブ)">
+  <track kind="subtitles" src="/vttja?videoid={{ videoid }}" srclang="jagaku" label="日本語(学タブ)">
   <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese+%28auto-generated%29" srclang="jaauto" label="日本語-自動生成">
   <track kind="subtitles" src="/vttjaauto?videoid={{ videoid }}" srclang="jaautogaku" label="日本語-自動生成(学タブ)">
-  {% endfor %}
 </video>
+
+
             </div>
                 <div id="show" style="display: none;">
                 <video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
