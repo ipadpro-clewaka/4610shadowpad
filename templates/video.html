@@ -99,7 +99,7 @@ window.onload = () => {
   preload="auto"
   style="outline:none;width:100%;background-color:#000;"
   playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
+  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
   data-setup='{"playbackRates": [0.5, 1, 1.5, 2]}'
 >
   {% for videourl in videourls %}
