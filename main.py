@@ -258,13 +258,22 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Union
-
+from fastapi.security import HTTPBasic, HTTPBasicCredentials#BASIC
+security = HTTPBasic()#BASIC
 
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/css", StaticFiles(directory="./css"), name="static")
 app.mount("/js", StaticFiles(directory="./js"), name="static")
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+
+USERNAME = "TEST1"#BASIC
+PASSWORD = "TESTPAS"#BASIC
+def authenticate(credentials: HTTPBasicCredentials = Depends(security)):#BASIC
+    if credentials.username != USERNAME or credentials.password != PASSWORD:#BASIC
+        raise HTTPException(status_code=401, detail="Unauthorized")#BASIC
+    return credentials#BASIC
 
 from fastapi.templating import Jinja2Templates
 template = Jinja2Templates(directory='templates').TemplateResponse
@@ -399,7 +408,7 @@ def home():
     url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
 
 @app.get("/load_instance_sub_server")
-def home():
+def home(credentials: HTTPBasicCredentials = Depends(authenticate)):
     global url
     url = "https://yukibbs-kari.onrender.com/"
 @app.get("/load_instance_main_server")
