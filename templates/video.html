@@ -35,6 +35,11 @@ fixed {
 }
 
 </style>
+    <style>
+        #safariElement {
+            display: none; /* 初期状態は非表示 */
+        }
+    </style>
 <style>
 .videobtn{
     /*コレ*/background: #87ceeb;
@@ -90,7 +95,7 @@ window.onload = () => {
                 showElement.style.display = "none";
             }
         }
-    </script>
+    </script><dev id="safariyou1">
             <div id="hide">
                 <video
   id="player"
@@ -126,8 +131,8 @@ window.onload = () => {
             </div><div id="videobtn"><button onclick="toggleContent()">Video.js/Normal</button></div>
             <div class="h-box">
                 <h1>{{ videotitle }}</h1>
-                再生回数:{{viewCountText}}|高評価:{{likeCountText}}|ジャンル:{{genre}}
-            </div>
+                再生回数:{{viewCountText}}|高評価:{{likeCountText}}|ジャンル:{{genre}}<div id="safariElement"><button onclick="safari()">Safari用</button</div>
+            </div></div>
             <div class="pure-g">
                 <div class="pure-u-1 pure-u-lg-1-5">
                     <a href="{{ videourls[0] }}" target="_blank">動画ダウンロード</a><br>
@@ -260,6 +265,21 @@ player.play();
 <div id="fixed">
 
 </div>
+
+
+    <script>
+        function isSafari() {
+            return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        }
+
+        if (isSafari()) {
+            document.getElementById('safariElement').style.display = 'block';
+        }
+        function safari(){
+            safariyou = await documentPictureInPicture.requestWindow();
+            safariyou.document.body.append(safariyou1);
+        }
+    </script>
 
 
 <script>
