@@ -134,7 +134,7 @@ window.onload = () => {
                     <a href="{{ videourls[0] }}" target="_blank">動画ダウンロード</a><br>
                     <a href="https://img.youtube.com/vi/{{ videoid }}/0.jpg" target="_blank">サムネイル画像ダウンロード</a><br>
                     <a href="https://www.youtube.com/watch?v={{ videoid }}" target="_blank">YouTubeで再生</a><br>
-                    <a href="javascript:{safari()}" target="_blank">ポップアップで再生</a><br>
+                    <a href="javascript:{openAboutBlank()}" target="_blank">ポップアップで再生</a><br>
                     <a
                         href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.protocol+'//'+document.domain+'/watch?v={{ videoid }}'+'&t='+Math.floor(document.getElementById('player').currentTime),})}">現時点の動画を共有</a><br>
                     <a
@@ -282,6 +282,24 @@ player.play();
   var player = videojs('player');
   player.muteToggle();
     });
+</script>
+<script>
+    function openAboutBlank() {
+        const aboutBlankWindow = window.open('about:blank', '_blank');//about開く
+        const content = `
+            <video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
+                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
+                    loadedmetadata="settime()" loop="">
+                    {% for videourl in videourls%}
+                    <source src="{{videourl}}">
+                    {% endfor %}
+                </video>
+        `;//aboyt内容
+        setTimeout(() => {
+            aboutBlankWindow.document.write(content);//aboutに内容追加
+            aboutBlankWindow.document.close();
+        }, 100);
+    }
 </script>
 </div>
 </body>
