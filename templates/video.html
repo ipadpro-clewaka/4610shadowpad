@@ -2,305 +2,298 @@
 <html lang="ja">
 
 <head>
-    <title>読み込み中</title>
-    
-    <link rel="stylesheet" href="/css/background-image.css">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/ionicons.min.css">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <script src="js/header.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
-    <script src="/js/videojs-contrib-hls.js"></script>
-    
-    <style>
-        #myIframe {
-  position: fixed;
-  right: 10px;  /* 右端から10ピクセルの余白 */
-  bottom: 10px; /* 下端から10ピクセルの余白 */
-  width: 400px; /* 幅を200ピクセルに設定 */
-  height: 300px;/* 高さを150ピクセルに設定 */
-  border: none; /* ボーダーなし */
-  z-index: 1000; /* 他の要素より前面に表示 */
-}
-fixed {
-  position: fixed;
-  bottom: 10px;/*自分が固定したい位置(例は上から0pxの位置)*/
-  left: 10px;/*自分が固定したい位置(例は左から10pxの位置)*/
-}
-
-</style>
-    
-<style>
-.videobtn{
-    /*コレ*/background: #87ceeb;
-    margin: auto;
-}
-</style>
-<script>
-    const player = videojs('player', {controlBar: {skipButtons: {forward: 5,backward: 10}},playbackRates: [0.5, 1, 1.5, 2],notSupportedMessage: '動画を再生できません ページをリロード(更新)してください'});
-    </script>
+	<title>読み込み中</title>
+	<link rel="stylesheet" href="/css/background-image.css">
+	<link rel="stylesheet" href="/css/pure-min.css">
+	<link rel="stylesheet" href="/css/grids-responsive-min.css">
+	<link rel="stylesheet" href="/css/ionicons.min.css">
+	<link rel="stylesheet" href="/css/default.css">
+	<link rel="stylesheet" href="/css/header.css">
+	<script src="js/header.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet">
+	<script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+	<script src="/js/videojs-contrib-hls.js"></script>
+	<style>
+	#myIframe {
+	  position: fixed;
+	  right: 10px;  /* 右端から10ピクセルの余白 */
+	  bottom: 10px; /* 下端から10ピクセルの余白 */
+	  width: 400px; /* 幅を200ピクセルに設定 */
+	  height: 300px;/* 高さを150ピクセルに設定 */
+	  border: none; /* ボーダーなし */
+	  z-index: 1000; /* 他の要素より前面に表示 */
+	}
+	fixed {
+	  position: fixed;
+	  bottom: 10px;/*自分が固定したい位置(例は上から0pxの位置)*/
+	  left: 10px;/*自分が固定したい位置(例は左から10pxの位置)*/
+	}
+	</style>
+	<style>
+	.videobtn{
+	    /*コレ*/background: #87ceeb;
+	    margin: auto;
+	}
+	</style>
+	<script>
+	const player = videojs('player', {controlBar: {skipButtons: {forward: 5,backward: 10}},playbackRates: [0.5, 1, 1.5, 2],notSupportedMessage: '動画を再生できません ページをリロード(更新)してください'});
+	</script>
 </head>
-
-
-
-
 <script>
-window.onload = () => {
-  const adspace = document.querySelector('#adspace');
-  if( adspace.clientHeight === 0 ){
-    alert('アクセスカウンター、または同時接続数が表示されていません。ad blockerをインストールしている場合表示されない場合があります。');
-  }
-}
+	window.onload = () => {
+	  const adspace = document.querySelector('#adspace');
+	  if( adspace.clientHeight === 0 ){
+	    alert('アクセスカウンター、または同時接続数が表示されていません。ad blockerをインストールしている場合表示されない場合があります。');
+	  }
+	}
 </script>
+
 <body class="no-theme">
-    <script src="https://accaii.com/sumikaze/script.js" async></script><noscript><img src="//accaii.com/sumikaze/script?guid=on"></noscript>
-    <span style="display:none" id="dark_mode_pref"></span>
-    <div class="pure-g">
-        <div class="pure-u-1 pure-u-md-2-24"></div>
-        <div class="pure-u-1 pure-u-md-20-24" id="contents">
-            <div class="pure-g navbar h-box">
-                <div class="pure-u-1 pure-u-md-12-24 searchbar">
-<form class="pure-form" action="/search" method="get">
-    <div class="fixed-form">
-         
-                        <fieldset>
-                            <input style="width:600" type="search" id="searchbox" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" name="q" placeholder="検索" title="検索" value="{{ word }}">
-                        </fieldset>
-                    </form>
-                        
-</div>
-<br><br><a href="/"><h3 class="yukiyoutube">YUKIYOUTUBE MOD</h3></a>
-           
-            <div id="player-container" class="h-box">
-                <script>
-        function toggleContent() {
-            var hideElement = document.getElementById("hide");
-            var showElement = document.getElementById("show");
-
-            if (hideElement.style.display !== "none") {
-                hideElement.style.display = "none";
-                showElement.style.display = "block";
-            } else {
-                hideElement.style.display = "block";
-                showElement.style.display = "none";
-            }
-        }
-    </script><dev id="safariyou1">
-            <div id="hide">
-                <video
-  id="player"
-  class="video-js vjs-default-skin"
-  controls
-  preload="auto"
-  style="outline:none;width:100%;background-color:#000;"
-  playsinline
-  poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}"
-  data-setup='{"playbackRates": [0.5, 1, 1.5, 2]}'
->
-  {% for videourl in videourls %}
-    <source src="{{ videourl }}" type="video/mp4" />
-    <source src="{{video1040}}" type="video/webm" />
-  {% endfor %}
-  
-  <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese" srclang="ja" label="日本語" default>
-  <track kind="subtitles" src="{{invser}}api/v1/captions/{{ videoid }}?label=Japanese+%28auto-generated%29" srclang="jaauto" label="日本語-自動生成">
-  <track kind="subtitles" src="/vtt?id={{ videoid }}" srclang="jaautogaku" label="日本語-自動生成(学タブ)">
-</video>
-
-
-            </div>
-                <div id="show" style="display: none;">
-                <video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
-                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
-                    loadedmetadata="settime()" loop="">
-                    {% for videourl in videourls%}
-                    <source src="{{videourl}}">
-                    {% endfor %}
-                </video>
-                </video></div>
-            </div><div id="videobtn"><button onclick="toggleContent()">Video.js/Normal</button></div>
-            <div class="h-box">
-                <h1>{{ videotitle }}</h1>
-                再生回数:{{viewCountText}}|高評価:{{likeCountText}}|ジャンル:{{genre}}
-            </div>
-            <div class="pure-g">
-                <div class="pure-u-1 pure-u-lg-1-5">
-                    <a href="{{ videourls[0] }}" target="_blank">動画ダウンロード</a><br>
-                    <a href="https://img.youtube.com/vi/{{ videoid }}/0.jpg" target="_blank">サムネイル画像ダウンロード</a><br>
-                    <a href="https://www.youtube.com/watch?v={{ videoid }}" target="_blank">YouTubeで再生</a><br>
-                    <a href="javascript:{openAboutBlank()}" target="_blank">ポップアップで再生</a><br>
-                    <a
-                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.protocol+'//'+document.domain+'/watch?v={{ videoid }}'+'&t='+Math.floor(document.getElementById('player').currentTime),})}">現時点の動画を共有</a><br>
-                    <a
-                        href="javascript:{navigator.share({title: '動画を共有',text: '{{videotitle}}',url: location.href,})}">動画を共有</a><br>
-                    <hr>
-                </div>
-                <div class="pure-u-1 pure-u-lg-3-5">
-                    <div class="h-box">
-                        <a href="/channel/{{authorid}}" style="display:block;width:fit-content;width:-moz-fit-content">
-                            <div class="channel-profile">
-
-                                <img src="{{authoricon}}">
-
-                                <span id="channel-name">{{ author }}</span>
-                            </div>
-                        </a>
-                        <div id="description-box">
-                            <div id="descriptionWrapper">{{ description | safe}}</div>
-                        </div>
-                        <hr>
-                        <div id="comments">
-                        </div>
-                    </div>
-                </div>
-                <div class="pure-u-1 pure-u-lg-1-5">
-                    <!--自動再生<input type="checkbox" id="autonext" onchange="checkautoplay()"><br>-->
-                    ループ再生<input type="checkbox" id="loop" onchange="changeloop()">
-                    {% for re in res %}
-                    <a href="/watch?v={{ re['id'] }}">
-
-                        <div class="thumbnail">
-                            <img loading="lazy" class="thumbnail" src="{% if proxy == "True" %}/thumbnail?v={{ re['id']}}{% else %}https://img.youtube.com/vi/{{ re['id'] }}/0.jpg{% endif %}">
-                        </div>
-                        <p style="width:100%">{{re["title"]}}</p>
-                    </a><br>
-                    <a href="/channel/{{re['authorId']}}">{{re["author"]}}</a>{% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="pure-u-1 pure-u-md-2-24"></div>
-    <script>
-        document.cookie = "yuki=True;max-age=2592000;";
-        function getCookie(name) { let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)")); return matches ? decodeURIComponent(matches[1]) : undefined; }
-        //document.getElementById("autonext").checked = getCookie("autonext");
-        function checkautoplay(){document.cookie = "autonext="+document.getElementById("autonext").checked+";max-age=2592000;";}
-        document.getElementById("loop").checked = getCookie("loop");
-        document.getElementById("player").loop = document.getElementById("loop").checked;
-        function changeloop(){document.cookie = "autonext="+document.getElementById("loop").checked+";max-age=2592000;";document.getElementById("player").loop = document.getElementById("loop").checked}
-        //function sleep(waitMsec) {var startMsec = new Date();while (new Date() - startMsec < waitMsec);}
-        //function autopage(){if (document.getElementById('autonext').checked) {sleep(5000);document.cookie = "autonext=true;max-age=2592000;";location.href = "/watch?v={{res[0]["id"]}}";}else{document.cookie = "autonext=false;max-age=2592000;";}}
-        function getUrlQueries() { var queryStr = window.location.search.slice(1); queries = {}; queryStr.split('&').forEach(function (queryStr) { var queryArr = queryStr.split('='); queries[queryArr[0]] = queryArr[1]; }); return queries; }
-        if (typeof getUrlQueries().t === "undefined") { t = 0; } else { document.getElementById("player").currentTime = getUrlQueries().t; }
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", "/comments?v=" + getUrlQueries().v);
-        xhr.onload = function () {
-            if (xhr.status != 500) {
-                document.getElementById('comments').innerHTML = xhr.responseText;
-            }
-            else { document.getElementById('comments').innerHTML = "エラーが発生しました。再読み込みを試してください"; }
-        };
-        xhr.send();
-        if (document.domain != "yukigennumber.ddo.jp") { document.getElementById("ads_box").innerHTML = ""; }
-        document.getElementById("player").style.maxHeight = document.documentElement.clientHeight * 0.8 + "px";
-
-        document.onkeydown = keydown;
-        function keydown(key) {
-            var v = document.getElementById("player");
-
-            if (key.keyCode == 32 || key.keyCode == 75) {
-                if (v.paused == true) {
-                    v.play();
-                } else {
-                    v.pause();
-                }
-            }
-        }
-    </script>
-    <script>$('#searchbox').autocomplete({
-            source: function (request, response) {
-                {
-                    var url = "/suggest?keyword=" + request.term
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("GET", url);
-                    xhr.onload = function () {
-                        response(JSON.parse(xhr.responseText));
-                    }
-                    xhr.send();
-                }
-            }, delay: 300
-        });</script>
-        <iframe id="myIframe" src="about:blank"></iframe>
-
-<script>
-// キーボードイベントのリスナーを追加
-document.addEventListener('keydown', function(event) {
-  // 'b' キーが押された場合
-  if (event.key === 'b' || event.key === 'B') {
-    var iframe = document.getElementById('myIframe');
-    // iframeの表示/非表示を切り替え
-    if (iframe.style.display === 'none') {
-      // 非表示から表示へ切り替え、かつURLを現在のドメインの/bbsに更新
-      iframe.style.display = 'block';
-      iframe.src = window.location.href.split('/')[0] + '//' + window.location.host + '/bbs';
-    } else {
-      // 表示から非表示へ切り替え
-      iframe.style.display = 'none';
-    }
-  }
-});
-</script>
-
-<div id="adspace">
-<!-- FC2カウンター ここから --><script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89505886" /></noscript><!-- FC2カウンター ここまで --><!-- FC2カウンター ここから -->
-同時接続数:<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89505886" /></noscript>  </div>
-
-
-<script>
-var player = videojs('player');
-player.play();
-</script>
- 
-
-
-<div id="fixed">
-
-</div>
-
-
-    <script>
-        function safari():{
-            var hideElement = document.getElementById("hide");
-            var showElement = document.getElementById("show");
-            if (hideElement.style.display !== "none") {
-            hideElement.style.display = "none";
-            showElement.style.display = "block";
-            }
-            safariyou = await documentPictureInPicture.requestWindow();
-            safariyou.document.body.append(safariyou1);
-        }
-    </script>
-
-
-<script>
-  var player = videojs('player');
-  player.muteToggle();
-    });
-</script>
-<script>
-    function openAboutBlank() {
-        const aboutBlankWindow = window.open('about:blank', '_blank');//about開く
-        const content = `
-            <video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
-                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
-                    loadedmetadata="settime()" loop="">
-                    {% for videourl in videourls%}
-                    <source src="{{videourl}}">
-                    {% endfor %}
-                </video>
-        `;//aboyt内容
-        setTimeout(() => {
-            aboutBlankWindow.document.write(content);//aboutに内容追加
-            aboutBlankWindow.document.close();
-        }, 100);
-    }
-</script>
-</div>
+	<script src="https://accaii.com/sumikaze/script.js" async></script>
+	<noscript>
+		<img src="//accaii.com/sumikaze/script?guid=on">
+	</noscript>
+	<span style="display:none" id="dark_mode_pref">
+	</span>
+	<div class="pure-g">
+		<div class="pure-u-1 pure-u-md-2-24">
+		</div>
+		<div class="pure-u-1 pure-u-md-20-24" id="contents">
+			<div class="pure-g navbar h-box">
+				<div class="pure-u-1 pure-u-md-12-24 searchbar">
+					<form class="pure-form" action="/search" method="get">
+						<div class="fixed-form">
+							<fieldset>
+								<input style="width:600" type="search" id="searchbox" autocomplete="on" autocorrect="on" autocapitalize="none" spellcheck="false" name="q" placeholder="検索" title="検索" value="{{ word }}">
+							</fieldset>
+						</div>
+						<br>
+						<br>
+						<a href="/">
+							<h3 class="yukiyoutube">YUKIYOUTUBE MOD</h3>
+						</a>
+						<div id="player-container" class="h-box">
+							<script>
+	function toggleContent() {
+	            var hideElement = document.getElementById("hide");
+	            var showElement = document.getElementById("show");
+	
+	            if (hideElement.style.display !== "none") {
+	                hideElement.style.display = "none";
+	                showElement.style.display = "block";
+	            } else {
+	                hideElement.style.display = "block";
+	                showElement.style.display = "none";
+	            }
+	        }
+							</script>
+							<dev id="safariyou1">
+								<div id="hide">
+									<video id="player" class="video-js vjs-default-skin" controls preload="auto" style="outline:none;width:100%;background-color:#000;" playsinline poster="{% if proxy == 'True' %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif %}" data-setup='{"playbackRates": [0.5, 1, 1.5, 2]}'>{% for videourl in videourls %}
+										<source src="%7B%7B%20videourl%20%7D%7D" type="video/mp4">
+										</source>
+										<source src="%7B%7Bvideo1040%7D%7D" type="video/webm">
+										</source>{% endfor %}
+										<track kind="subtitles" src="%7B%7Binvser%7D%7Dapi/v1/captions/%7B%7B%20videoid%20%7D%7D?label=Japanese" srclang="ja" label="日本語" default>
+											<track kind="subtitles" src="%7B%7Binvser%7D%7Dapi/v1/captions/%7B%7B%20videoid%20%7D%7D?label=Japanese+%28auto-generated%29" srclang="jaauto" label="日本語-自動生成">
+												<track kind="subtitles" src="/vtt?id=%7B%7B%20videoid%20%7D%7D" srclang="jaautogaku" label="日本語-自動生成(学タブ)">
+												</track>
+											</track>
+										</track>
+									</video>
+								</div>
+								<div id="show" style="display: none;">
+									<video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == " true videoid else endif id="player" class="on-video_player video-js player-style-invidious" controls="" loadedmetadata="settime()" loop="">{% for videourl in videourls%}
+										<source src="%7B%7Bvideourl%7D%7D">{% endfor %}</source>
+									</video>
+								</div>
+							</dev>
+						</div>
+						<div id="videobtn">
+							<button onclick="toggleContent()">Video.js/Normal</button>
+						</div>
+						<div class="h-box">
+							<h1>{{ videotitle }}</h1>再生回数:{{viewCountText}}|高評価:{{likeCountText}}|ジャンル:{{genre}}</div>
+						<div class="pure-g">
+							<div class="pure-u-1 pure-u-lg-1-5">
+								<a href="%7B%7B%20videourls%5B0%5D%20%7D%7D" target="_blank">動画ダウンロード</a>
+								<br>
+								<a href="https://img.youtube.com/vi/%7B%7B%20videoid%20%7D%7D/0.jpg" target="_blank">サムネイル画像ダウンロード</a>
+								<br>
+								<a href="https://www.youtube.com/watch?v=%7B%7B%20videoid%20%7D%7D" target="_blank">YouTubeで再生</a>
+								<br>
+								<a href="javascript:%7BopenAboutBlank()%7D" target="_blank">ポップアップで再生</a>
+								<br>
+								<a href="javascript:%7Bnavigator.share(%7Btitle:%20'%E5%8B%95%E7%94%BB%E3%82%92%E5%85%B1%E6%9C%89',text:%20'%7B%7Bvideotitle%7D%7D',url:%20location.protocol+'//'+document.domain+'/watch?v=%7B%7B%20videoid%20%7D%7D'+'&t='+Math.floor(document.getElementById('player').currentTime),%7D)%7D">現時点の動画を共有</a>
+								<br>
+								<a href="javascript:%7Bnavigator.share(%7Btitle:%20'%E5%8B%95%E7%94%BB%E3%82%92%E5%85%B1%E6%9C%89',text:%20'%7B%7Bvideotitle%7D%7D',url:%20location.href,%7D)%7D">動画を共有</a>
+								<br>
+								<hr>
+							</div>
+							<div class="pure-u-1 pure-u-lg-3-5">
+								<div class="h-box">
+									<a href="/channel/%7B%7Bauthorid%7D%7D" style="display:block;width:fit-content;width:-moz-fit-content">
+										<div class="channel-profile">
+											<img src="%7B%7Bauthoricon%7D%7D">
+											<span id="channel-name">{{ author }}</span>
+										</div>
+									</a>
+									<div id="description-box">
+										<div id="descriptionWrapper">{{ description | safe}}</div>
+									</div>
+									<hr>
+									<div id="comments">
+									</div>
+								</div>
+							</div>
+							<div class="pure-u-1 pure-u-lg-1-5">
+								<!--自動再生<input type="checkbox" id="autonext" onchange="checkautoplay()"><br>-->ループ再生
+								<input type="checkbox" id="loop" onchange="changeloop()">{% for re in res %}
+								<a href="/watch?v=%7B%7B%20re%5B'id'%5D%20%7D%7D">
+									<div class="thumbnail">
+										<img loading="lazy" class="thumbnail" src="%7B%%20if%20proxy%20==%20" true re else endif>
+									</div>
+									<p style="width:100%">{{re["title"]}}</p>
+								</a>
+								<br>
+								<a href="/channel/%7B%7Bre%5B'authorId'%5D%7D%7D">{{re["author"]}}</a>{% endfor %}</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="pure-u-1 pure-u-md-2-24">
+			</div>
+			<script>
+	document.cookie = "yuki=True;max-age=2592000;";
+	        function getCookie(name) { let matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)")); return matches ? decodeURIComponent(matches[1]) : undefined; }
+	        //document.getElementById("autonext").checked = getCookie("autonext");
+	        function checkautoplay(){document.cookie = "autonext="+document.getElementById("autonext").checked+";max-age=2592000;";}
+	        document.getElementById("loop").checked = getCookie("loop");
+	        document.getElementById("player").loop = document.getElementById("loop").checked;
+	        function changeloop(){document.cookie = "autonext="+document.getElementById("loop").checked+";max-age=2592000;";document.getElementById("player").loop = document.getElementById("loop").checked}
+	        //function sleep(waitMsec) {var startMsec = new Date();while (new Date() - startMsec < waitMsec);}
+	        //function autopage(){if (document.getElementById('autonext').checked) {sleep(5000);document.cookie = "autonext=true;max-age=2592000;";location.href = "/watch?v={{res[0]["id"]}}";}else{document.cookie = "autonext=false;max-age=2592000;";}}
+	        function getUrlQueries() { var queryStr = window.location.search.slice(1); queries = {}; queryStr.split('&').forEach(function (queryStr) { var queryArr = queryStr.split('='); queries[queryArr[0]] = queryArr[1]; }); return queries; }
+	        if (typeof getUrlQueries().t === "undefined") { t = 0; } else { document.getElementById("player").currentTime = getUrlQueries().t; }
+	        var xhr = new XMLHttpRequest();
+	        xhr.open("GET", "/comments?v=" + getUrlQueries().v);
+	        xhr.onload = function () {
+	            if (xhr.status != 500) {
+	                document.getElementById('comments').innerHTML = xhr.responseText;
+	            }
+	            else { document.getElementById('comments').innerHTML = "エラーが発生しました。再読み込みを試してください"; }
+	        };
+	        xhr.send();
+	        if (document.domain != "yukigennumber.ddo.jp") { document.getElementById("ads_box").innerHTML = ""; }
+	        document.getElementById("player").style.maxHeight = document.documentElement.clientHeight * 0.8 + "px";
+	
+	        document.onkeydown = keydown;
+	        function keydown(key) {
+	            var v = document.getElementById("player");
+	
+	            if (key.keyCode == 32 || key.keyCode == 75) {
+	                if (v.paused == true) {
+	                    v.play();
+	                } else {
+	                    v.pause();
+	                }
+	            }
+	        }
+			</script>
+			<script>
+	$('#searchbox').autocomplete({
+	            source: function (request, response) {
+	                {
+	                    var url = "/suggest?keyword=" + request.term
+	                    var xhr = new XMLHttpRequest();
+	                    xhr.open("GET", url);
+	                    xhr.onload = function () {
+	                        response(JSON.parse(xhr.responseText));
+	                    }
+	                    xhr.send();
+	                }
+	            }, delay: 300
+	        });
+			</script>
+			<iframe id="myIframe" src="about:blank">
+			</iframe>
+			<script>
+	// キーボードイベントのリスナーを追加
+	document.addEventListener('keydown', function(event) {
+	  // 'b' キーが押された場合
+	  if (event.key === 'b' || event.key === 'B') {
+	    var iframe = document.getElementById('myIframe');
+	    // iframeの表示/非表示を切り替え
+	    if (iframe.style.display === 'none') {
+	      // 非表示から表示へ切り替え、かつURLを現在のドメインの/bbsに更新
+	      iframe.style.display = 'block';
+	      iframe.src = window.location.href.split('/')[0] + '//' + window.location.host + '/bbs';
+	    } else {
+	      // 表示から非表示へ切り替え
+	      iframe.style.display = 'none';
+	    }
+	  }
+	});
+			</script>
+			<div id="adspace">
+				<!-- FC2カウンター ここから -->
+				<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89505886"></script>
+				<noscript>
+					<img src="//counter1.fc2.com/counter_img.php?id=89505886">
+				</noscript>
+				<!-- FC2カウンター ここまで -->
+				<!-- FC2カウンター ここから -->同時接続数:
+				<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89505886"></script>
+				<noscript>
+					<img src="//counter1.fc2.com/counter_now.php?id=89505886">
+				</noscript>
+			</div>
+			<script>
+	var player = videojs('player');
+	player.play();
+			</script>
+			<div id="fixed">
+			</div>
+			<script>
+	function safari():{
+	            var hideElement = document.getElementById("hide");
+	            var showElement = document.getElementById("show");
+	            if (hideElement.style.display !== "none") {
+	            hideElement.style.display = "none";
+	            showElement.style.display = "block";
+	            }
+	            safariyou = await documentPictureInPicture.requestWindow();
+	            safariyou.document.body.append(safariyou1);
+	        }
+			</script>
+			<script>
+	var player = videojs('player');
+	  player.muteToggle();
+	    });
+			</script>
+			<script>
+	function openAboutBlank() {
+	        const aboutBlankWindow = window.open('about:blank', '_blank');//about開く
+	        const content = `
+	            <video style="height: auto;outline:none;width:100%;background-color:#000;" playsinline="" poster="{% if proxy == "True" %}/thumbnail?v={{ videoid }}{% else %}https://img.youtube.com/vi/{{ videoid }}/0.jpg{% endif
+	                    %}" id="player" class="on-video_player video-js player-style-invidious" controls=""
+	                    loadedmetadata="settime()" loop="">
+	                    {% for videourl in videourls%}
+	                    <source src="{{videourl}}">
+	                    {% endfor %}
+	                
+	        `;//aboyt内容
+	        setTimeout(() => {
+	            aboutBlankWindow.document.write(content);//aboutに内容追加
+	            aboutBlankWindow.document.close();
+	        }, 100);
+	    }
+			</script>
+		</div>
+	</div>
 </body>
+
 </html>
