@@ -7,8 +7,8 @@ import random
 import os
 import subprocess
 from cache import cache
-ver = "2.7.7.1" # バージョン    
-update = "api追加" # アップデート内容
+ver = "2.7.8" # バージョン    
+update = "apiリロード機能" # アップデート内容
 token = "e4f5c13f-4f31-4ae1-ac5c-b3f1df232073" # hcaptchaのサイトキー
 max_api_wait_time = 5
 max_time = 10
@@ -415,8 +415,13 @@ def home(credentials: HTTPBasicCredentials = Depends(authenticate)):
 def home():
     global url
     url = "hhttps://yukibbs-server.onrender.com/"
-
-
+@app.get("/reload_inv")
+def home():
+    global apis,apichannels,apicomments
+    stopinv = apis[0]
+    apis.append(stopinv)
+    apis.remove(stopinv)
+    print(f"invリロード/{stopinv}")
 @app.exception_handler(500)
 def page(request: Request,__):
     return template("APIwait.html",{"request": request},status_code=500)
