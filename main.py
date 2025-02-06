@@ -7,8 +7,8 @@ import random
 import os
 import subprocess
 from cache import cache
-ver = "2.7.9" # バージョン    
-update = "YUKIBBSのID認証に対応" # アップデート内容
+ver = "2.7.9.1" # バージョン    
+update = "YUKIBBSのID認証に" # アップデート内容
 token = "e4f5c13f-4f31-4ae1-ac5c-b3f1df232073" # hcaptchaのサイトキー
 max_api_wait_time = 5
 max_time = 10
@@ -440,6 +440,7 @@ async def get_captions(id: str):
     url = f"{apis[0]}api/v1/captions/{id}?label=Japanese+(auto-generated)"
     response = apirequest(url)
     return response
+"""
 @app.get("/verify", response_class=HTMLResponse)
 def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
@@ -449,3 +450,9 @@ def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
 @app.post("/submit")
 def submit(h-captcha-response: int = 0,seed: int = 0):
     return requests.post(fr"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}).text
+"""
+@app.get("/verify", response_class=HTMLResponse)
+def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
+    if not(check_cokie(yuki)):
+        return template("404.html", {"request": request})
+    return "ID認証は対応していません"
