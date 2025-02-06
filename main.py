@@ -406,7 +406,7 @@ def view_commonds(request: Request,yuki: Union[str] = Cookie(None)):
 @app.get("/load_instance")
 def home():
     global url
-    url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
+    url = requests.get(r'https://raw.githubusercontent.com/taiga905/yuki-youtube-instance/main/instance.txt').text.rstrip()
 
 
 @app.get("/reload_inv")
@@ -441,11 +441,11 @@ async def get_captions(id: str):
     response = apirequest(url)
     return response
 @app.get("/verify", response_class=HTMLResponse)
-def get_form(seed):
+def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
         return template("404.html", {"request": request})
     return requests.get(fr"{url}verify?seed={urllib.parse.quote(seed)}").text
 
 @app.post("/submit")
-def submit(h_captcha_response: str = Form(alias="h-captcha-response"), seed: str = Form(...)):
+def submit(h-captcha-response: int = 0,seed: int = 0):
     return requests.post(fr"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}).text
