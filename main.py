@@ -442,15 +442,12 @@ async def get_captions(id: str):
     return response
 
 @app.get("/verify", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
-    if not(check_cokie(yuki)):
-        return template("404.html", {"request": request})
+def get_form(seed=""):
     return requests.get(fr"{url}verify?seed={urllib.parse.quote(seed)}").text
 
-@app.post("/submit")
-def submit(response: Response,request: Request,"h-captcha-response": int = 0,seed: int = 0):
-    req = requests.get(f"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}
-    return req
+@app.post("/submit", response_class=HTMLResponse)
+def submit(h_captcha_response: str = Form(alias="h-captcha-response"), seed: str = Form(...)):
+    return requests.post(fr"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}).text
 
 """
 @app.get("/verify", response_class=HTMLResponse)
