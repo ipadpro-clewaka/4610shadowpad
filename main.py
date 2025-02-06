@@ -448,7 +448,7 @@ def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     return requests.get(fr"{url}verify?seed={urllib.parse.quote(seed)}").text
 
 @app.post("/submit")
-def submit(h-captcha-response: int = 0,seed: int = 0):
+def submit(response: Response,request: Request,h-captcha-response: int = 0,seed: int = 0):
     req = requests.get(f"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}
     return req
 
