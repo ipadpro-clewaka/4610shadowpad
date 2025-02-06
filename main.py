@@ -440,7 +440,7 @@ async def get_captions(id: str):
     url = f"{apis[0]}api/v1/captions/{id}?label=Japanese+(auto-generated)"
     response = apirequest(url)
     return response
-
+"""
 @app.get("/verify", response_class=HTMLResponse)
 def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
@@ -457,5 +457,5 @@ def submit(response: Response,request: Request,h-captcha-response: int = 0,seed:
 def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     if not(check_cokie(yuki)):
         return template("404.html", {"request": request})
-    return "ID認証は対応していません"
-"""
+    return "ID認証は対応していません。対応するまでしばらくお待ちください。"
+
