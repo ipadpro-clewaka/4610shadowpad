@@ -266,7 +266,8 @@ app.mount("/css", StaticFiles(directory="./css"), name="static")
 app.mount("/js", StaticFiles(directory="./js"), name="static")
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
-
+from fastapi.templating import Jinja2Templates
+template = Jinja2Templates(directory='templates').TemplateResponse
 
 USERNAME = "TEST1"#BASIC
 PASSWORD = "TESTPAS"#BASIC
