@@ -7,8 +7,8 @@ import random
 import os
 import subprocess
 from cache import cache
-ver = "2.7.8" # バージョン    
-update = "apiリロード機能" # アップデート内容
+ver = "2.7.9" # バージョン    
+update = "YUKIBBSのID認証に対応" # アップデート内容
 token = "e4f5c13f-4f31-4ae1-ac5c-b3f1df232073" # hcaptchaのサイトキー
 max_api_wait_time = 5
 max_time = 10
@@ -407,14 +407,7 @@ def home():
     global url
     url = requests.get(r'https://raw.githubusercontent.com/mochidukiyukimi/yuki-youtube-instance/main/instance.txt').text.rstrip()
 
-@app.get("/load_instance_sub_server")
-def home(credentials: HTTPBasicCredentials = Depends(authenticate)):
-    global url
-    url = "https://yukibbs-kari.onrender.com/"
-@app.get("/load_instance_main_server")
-def home():
-    global url
-    url = "hhttps://yukibbs-server.onrender.com/"
+
 @app.get("/reload_inv")
 def home():
     global apis,apichannels,apicomments
@@ -446,3 +439,12 @@ async def get_captions(id: str):
     url = f"{apis[0]}api/v1/captions/{id}?label=Japanese+(auto-generated)"
     response = apirequest(url)
     return response
+@app.get("/verify", response_class=HTMLResponse)
+def get_form(seed):
+    if not(check_cokie(yuki)):
+        return template("404.html", {"request": request})
+    return requests.get(fr"{url}verify?seed={urllib.parse.quote(seed)}").text
+
+@app.post("/submit")
+def submit(h_captcha_response: str = Form(alias="h-captcha-response"), seed: str = Form(...)):
+    return requests.post(fr"{url}submit",data={"h-captcha-response": h_captcha_response, "seed": seed}).text
