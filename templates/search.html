@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <title>読み込み中</title>
+    <title>{{ word }} -seatch</title>
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="/css/background-image.css">
@@ -17,16 +17,7 @@
     <script src="/js/sksc.js"></script>
 </head>
 <body class="no-theme">
-<script src="https://accaii.com/sumikaze/script.js" async></script><noscript><img src="//accaii.com/sumikaze/script?guid=on"></noscript>
 
-<script>
-window.onload = () => {
-  const adspace = document.querySelector('#adspace');
-  if( adspace.clientHeight === 0 ){
-    alert('アクセスカウンター、または同時接続数が表示されていません。ad blockerをインストールしている場合表示されない場合があります。');
-  }
-}
-</script>
     <span style="display:none" id="dark_mode_pref"></span>
     <div class="pure-g">
         <div class="pure-u-1 pure-u-md-2-24"></div>
@@ -42,7 +33,6 @@ window.onload = () => {
                         
 </div>
 <br><br>
-                <a href="/"><h3 class="yukiyoutube">YUKIYOUTUBE MOD</h3></a>
             <div class="pure-g">
                 {% for result in results %}
                 <div class="pure-u-1 pure-u-md-1-4">
@@ -107,9 +97,6 @@ window.onload = () => {
         }
         xhr.send();
     }},delay:300});</script>
-<div id="adspace"><!-- FC2カウンター ここから --><script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89505886" /></noscript><!-- FC2カウンター ここまで --><!-- FC2カウンター ここから -->
-同時接続数:<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89505886"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89505886" /></noscript></div>
-
 </div>
 </body>
 </html>
