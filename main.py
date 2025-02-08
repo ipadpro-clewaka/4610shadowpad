@@ -264,6 +264,7 @@ security = HTTPBasic()#BASIC
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 app.mount("/css", StaticFiles(directory="./css"), name="static")
 app.mount("/js", StaticFiles(directory="./js"), name="static")
+app.mount("/word", StaticFiles(directory="./Blog", html=True), name="static")
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 from fastapi.templating import Jinja2Templates
@@ -284,15 +285,13 @@ template = Jinja2Templates(directory='templates').TemplateResponse
 
 
 @app.get("/", response_class=HTMLResponse)
-def home(response: Response,request: Request,yuki: Union[str] = Cookie(None),hca: int = 0,):
-    adminannounce = requests.get(r'https://ztttas1.github.io/yuki00000000000000000000000000000/AN.txt').text.rstrip()
+def home(response: Response,request: Request,yuki: Union[str] = Cookie(None)):
     if check_cokie(yuki):
         response.set_cookie("yuki","True",max_age=60 * 60 * 24 * 7)
-        return template("home.html",{"request": request,"ver":ver, "adminannounce": adminannounce,})
+        return template("home.html",{"request": request})
     print(check_cokie(yuki))
-    if hca == 1:
-        return template("hcaptcha.html",{"request": request,"token": token})
-    return template("word2.html",{"request": request})
+    return redirect("/word")
+
 
 @app.get('/watch', response_class=HTMLResponse)
 def video(v:str,response: Response,request: Request,yuki: Union[str] = Cookie(None),proxy: Union[str] = Cookie(None)):
